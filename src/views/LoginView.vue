@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row justify-content-center align-items-center h-100vh">
       <div class="col-lg-6">
-        <h1 class="text-center mb-4">後台登入</h1>
+        <h1 class="text-center mb-4">後台登入123</h1>
         <div class="form-floating mb-3">
           <input
             type="email"
@@ -62,7 +62,7 @@ export default {
         this.$http
           .post(`${api_url}/admin/signin`, this.user)
           .then((res) => {
-            // console.log(res.data);
+            console.log(res.data);
             // 一般寫法
             // const token = res.data.token;
             // const expired = res.data.expired;
@@ -78,6 +78,7 @@ export default {
 
             //跳轉至後台頁面
             this.$router.push("/backStage");
+            // location.href = "/vite-week4/backStage";
           })
           .catch((error) => {
             alert(error.response.data.message);
