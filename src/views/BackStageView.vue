@@ -61,12 +61,19 @@
   </div>
 
   <!-- 新增or編輯 Modal start-->
-  <product-modal
+  <ProductModal
     :temp-data="tempData"
     @update="getProductList"
     :is-new="isNew"
     ref="editProductModal"
-  ></product-modal>
+  >
+  </ProductModal>
+  <!-- <product-modal
+    :temp-data="tempData"
+    @update="getProductList"
+    :is-new="isNew"
+    ref="editProductModal"
+  ></product-modal> -->
   <!-- 新增or編輯 Modal end-->
 
   <!-- 刪除 Modal start-->
@@ -80,6 +87,8 @@
 
 <script>
 import UploadImages from "../components/UploadImages.vue";
+import DeleteModal from "../components/DeleteModal.vue";
+import ProductModal from "../components/ProductModal.vue";
 export default {
   data() {
     return {
@@ -146,14 +155,14 @@ export default {
   //區域註冊
   components: {
     // pagination,
-    // productModal,
-    // deleteModal,
+    ProductModal,
+    DeleteModal,
     UploadImages,
   },
   mounted() {
     //取出Token
     const token = document.cookie.replace(
-      /(?:(?:^|.*;\s*)week2HexToken\s*\s*([^;]*).*$)|^.*$/,
+      /(?:(?:^|.*;\s*)week2HexToken\s*=\s*([^;]*).*$)|^.*$/,
       "$1"
     );
     this.$http.defaults.headers.common["Authorization"] = token;
