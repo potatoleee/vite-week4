@@ -218,10 +218,13 @@
 
 <script>
 import { Modal } from "bootstrap";
+
 export default {
   props: ["tempData", "isNew"],
   data() {
     return {
+      //v-model 單向資料流問題
+      // innerTempData: JSON.parse(JSON.stringify(this.tempData)), //使用深拷貝並將原本tempData換成innerTempData，但目前無法同步更新
       editProductModal: "",
     };
   },
@@ -250,8 +253,8 @@ export default {
     },
     //新增圖片
     createImage() {
-      this.tempData.imagesUrl = []; //新增input欄位放入網址
-      this.tempData.imagesUrl.push("");
+      this.innerTempData.imagesUrl = []; //新增input欄位放入網址
+      this.innerTempData.imagesUrl.push("");
     },
     show() {
       this.editProductModal.show();
@@ -262,6 +265,8 @@ export default {
   },
   mounted() {
     this.editProductModal = new Modal(this.$refs.editProductModal);
+    console.log(this.innerTempData);
+    console.log(this.tempData);
   },
 };
 </script>

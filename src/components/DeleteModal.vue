@@ -44,6 +44,7 @@
 
 <script>
 import { Modal } from "bootstrap";
+import { api_path, api_url } from "../helper/api.js";
 export default {
   props: ["tempData"],
   data() {
@@ -53,8 +54,8 @@ export default {
   },
   methods: {
     deleteProduct() {
-      const api_url = import.meta.env.VITE_URL;
-      const api_path = import.meta.env.VITE_PATH;
+      // const api_url = import.meta.env.VITE_URL;
+      // const api_path = import.meta.env.VITE_PATH;
       this.$http
         .delete(`${api_url}/api/${api_path}/admin/product/${this.tempData.id}`)
         .then((res) => {

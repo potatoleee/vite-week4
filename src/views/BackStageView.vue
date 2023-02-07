@@ -144,6 +144,8 @@ export default {
       } else if (state === "edit") {
         this.$refs.editProductModal.show();
         this.tempData = { ...product };
+        console.log(this.product);
+        console.log(this.tempData);
         this.isNew = false;
       } else if (state === "delete") {
         this.$refs.deleteProductModal.show();
