@@ -218,7 +218,7 @@
 
 <script>
 import { Modal } from "bootstrap";
-
+import { api_path, api_url } from "../helper/api.js";
 export default {
   props: ["tempData", "isNew"],
   data() {
@@ -231,8 +231,8 @@ export default {
   methods: {
     //確認按鈕
     confirm() {
-      const api_url = import.meta.env.VITE_URL;
-      const api_path = import.meta.env.VITE_PATH;
+      // const api_url = import.meta.env.VITE_URL;
+      // const api_path = import.meta.env.VITE_PATH;
       //初始為新增
       let http = "post";
       let url = `${api_url}/api/${api_path}/admin/product`;
