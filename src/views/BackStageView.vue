@@ -62,7 +62,7 @@
 
   <!-- 新增or編輯 Modal start-->
   <ProductModal
-    :temp-data="tempData"
+    :inner-temp-data="tempData"
     @update="getProductList"
     :is-new="isNew"
     ref="editProductModal"
@@ -144,7 +144,6 @@ export default {
       } else if (state === "edit") {
         this.$refs.editProductModal.show();
         this.tempData = { ...product };
-        console.log(this.product);
         console.log(this.tempData);
         this.isNew = false;
       } else if (state === "delete") {
