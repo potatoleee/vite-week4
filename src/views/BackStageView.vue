@@ -68,12 +68,14 @@
     ref="editProductModal"
   >
   </ProductModal>
-  <!-- <product-modal
+  <!-- <ProductModal
     :temp-data="tempData"
     @update="getProductList"
     :is-new="isNew"
     ref="editProductModal"
-  ></product-modal> -->
+  >
+  </ProductModal> -->
+
   <!-- 新增or編輯 Modal end-->
 
   <!-- 刪除 Modal start-->
@@ -97,6 +99,7 @@ export default {
       page: {},
       isNew: false, //判斷是否為新增or編輯
       tempData: {
+        //暫存各產品modal的資料
         imagesUrl: [],
         flavor: "",
       },
