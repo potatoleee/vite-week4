@@ -55,7 +55,10 @@
     </table>
 
     <!-- props -->
-    <pagination :page-in="page" :get-product-list="getProductList"></pagination>
+    <PaginationComponent
+      :page-in="page"
+      :get-product-list="getProductList"
+    ></PaginationComponent>
     <!-- $emit -->
     <!-- <pagination2 :page-in="page" :get-product-list="getProductList" @change-page="getProductList"></pagination2> -->
   </div>
@@ -91,6 +94,8 @@
 import UploadImages from "../components/UploadImages.vue";
 import DeleteModal from "../components/DeleteModal.vue";
 import ProductModal from "../components/ProductModal.vue";
+import PaginationComponent from "../components/PaginationComponent.vue";
+
 export default {
   data() {
     return {
@@ -102,6 +107,7 @@ export default {
         //暫存各產品modal的資料
         imagesUrl: [],
         flavor: "",
+        is_enabled: 1,
       },
     };
   },
@@ -141,8 +147,10 @@ export default {
       if (state === "new") {
         this.tempData = {
           imagesUrl: [],
+          is_enabled: 1,
         };
         this.$refs.editProductModal.show();
+        console.log(this.tempData);
         this.isNew = true;
       } else if (state === "edit") {
         this.$refs.editProductModal.show();
@@ -158,9 +166,9 @@ export default {
   },
   //區域註冊
   components: {
-    // pagination,
     ProductModal,
     DeleteModal,
+    PaginationComponent,
     UploadImages,
   },
   mounted() {

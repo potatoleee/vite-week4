@@ -224,7 +224,7 @@ export default {
   data() {
     return {
       //v-model 單向資料流問題
-      tempData: JSON.parse(JSON.stringify(this.innerTempData)), //使用深拷貝並將父元件tempData拷貝到innerTempData，但現在tempData的資料沒有同步顯示於input內，都是空值
+      tempData: JSON.parse(JSON.stringify(this.innerTempData)), //使用深拷貝並將父元件tempData拷貝到innerTempData
       editProductModal: "",
     };
   },
@@ -261,6 +261,12 @@ export default {
     },
     hide() {
       this.editProductModal.hide();
+    },
+  },
+  watch: {
+    //監聽props
+    innerTempData() {
+      this.tempData = this.innerTempData;
     },
   },
   mounted() {
